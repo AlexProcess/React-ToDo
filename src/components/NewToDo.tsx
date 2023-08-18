@@ -1,11 +1,19 @@
 import { GText } from "./GText";
-import "NewToDo.css";
+import "./newtodo.css";
 
 export const NewToDo = () => {
     return (
-        <div>
-            <button className="rounded__button"></button>
-            <GText>Create a new To Do</GText>
-        </div>
+        <section className="todo-card__container">
+            <div className="todo-card__contain">
+                <button className="rounded__button"></button>
+                <form action="text">
+                    <input
+                        className="todo__input"
+                        placeholder="Create a new to do ..."
+                        type="text"
+                    />
+                </form>
+            </div>
+        </section>
     );
 };
