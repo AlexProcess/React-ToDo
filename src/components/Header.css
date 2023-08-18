@@ -1,37 +1,21 @@
 /* Header.css */
 .header__container {
-  position: relative;
   width: 100%;
   overflow: hidden; /* Asegura que el contenido no desborde */
-}
-
-.header__background {
-  width: 100%;
-}
-
-.head__image {
-  width: 100%;
-  height: auto;
-  display: block;
+  padding: 40px;
 }
 
 .header__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
-  gap: 150px;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
+  justify-content: space-between;
+  align-items: center;
   color: white;
-  margin-top: 20px;
 }
 
-.sun_icon{
-  margin-top: 20px;
+.sun__icon {
+  margin-bottom: 7px;
 }
 
 .ld__mode{
