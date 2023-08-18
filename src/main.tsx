@@ -1,10 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./App.css";
+
+//* MAIN COMPONENT *//
 import { ToDoApp } from "./ToDoApp";
+
+//* PROVIDERS *//
+import { TodoProvider } from "./Context/TodoContext";
+
+//* GLOBAL STYLES *//
+import "./App.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
-        <ToDoApp />
+        <TodoProvider>
+            <ToDoApp />
+        </TodoProvider>
     </React.StrictMode>
 );

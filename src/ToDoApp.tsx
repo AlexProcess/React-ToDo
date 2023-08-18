@@ -1,8 +1,7 @@
-import React from "react";
-import "./App.css";
+//* COMPONENTS *//
+import { Background } from "./components/Background";
 import { Header } from "./components/Header";
 import { NewToDo } from "./components/NewToDo";
-import { Background } from "./components/Background";
 
 export const ToDoApp = () => {
     return (
