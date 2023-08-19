@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import { ToDoApp } from "./ToDoApp";
 
 //* PROVIDERS *//
-import { TodoProvider } from "./Context/TodoContext";
+import { TodoProvider } from "./context/TodoContext";
 
 //* GLOBAL STYLES *//
 import "./App.css";

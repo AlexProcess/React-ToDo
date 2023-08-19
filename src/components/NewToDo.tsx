@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 export const NewToDo = () => {
     const formik = useFormik({
-        initialValues: { todo: "" },
+        initialValues: { todo: "", completed: false },
         onSubmit: (formValues) => {
             const previousTodos = localStorage.getItem("todos");
             localStorage.setItem("todos", JSON.stringify(formValues.todo));
@@ -13,10 +13,24 @@ export const NewToDo = () => {
         },
     });
 
+    console.log(formik.values);
+
     return (
         <section className="todo-card__container">
             <div className="todo-card__contain">
-                <button className="rounded__button"></button>
+                <button
+                    onClick={() =>
+                        formik.setFieldValue(
+                            "completed",
+                            !formik.values.completed
+                        )
+                    }
+                    className={
+                        formik.values.completed
+                            ? "rounded__button-checked"
+                            : "rounded__button"
+                    }
+                />
                 <form onSubmit={formik.handleSubmit}>
                     <input
                         className="todo__input"
