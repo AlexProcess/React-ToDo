@@ -1,0 +1,55 @@
+.todoes-card__container {
+  display: flex;
+  border-radius: 6px;
+  padding: 10px 20px;
+  width: 80%;
+  justify-content: center;
+  align-items: center; 
+  background-color: #25273c;
+  margin: 0 auto; 
+  margin-top: 10px;
+}
+
+
+.todoes-card__contain {
+  display: flex;
+  align-items: center; 
+  flex-grow: 1; 
+}
+
+.rounded__button {
+  width: 24px; 
+  height: 24px; 
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid  hsl(234, 11%, 52%);
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rounded__button-checked{
+  width: 24px; 
+  height: 24px; 
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid  hsl(234, 11%, 52%);
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.todo__input {
+  font-size: 18px;
+  background-color: #25273c;
+  outline: none; 
+  border: 1px solid #25273c;
+  color: hsl(234, 11%, 52%);
+}
+
+.todo__input:focus {
+  border: none;
+}

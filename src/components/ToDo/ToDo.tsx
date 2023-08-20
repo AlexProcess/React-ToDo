@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 //* INTERFACES *//
 import { IToDo } from "../../interfaces/toDo.interfaces";
@@ -24,12 +24,18 @@ export const ToDo: React.FC<Props> = ({ todo }) => {
         },
     });
 
-    console.log(todo);
+    useEffect(() => {
+        return () => {};
+    }, []);
+
+    //TODO: UseEffect para actualizar los valores del formik
+    //TODO: Crear un metodo en el context para actualizar el todo a traves del ID
+    //TODO: Cuando se haga click en completado llamar a la funcion onSubmmit de formik --> formik.onSumbit
 
     return (
         <li>
             <div className="todoes-card__container">
-                <div className="todoes-card__conatiner">
+                <div className="todoes-card__contain">
                     <button
                         onClick={() =>
                             formik.setFieldValue(
@@ -43,16 +49,7 @@ export const ToDo: React.FC<Props> = ({ todo }) => {
                                 : "rounded__button"
                         }
                     />
-                    <form onSubmit={formik.handleSubmit}>
-                        <input
-                            className="todo__input"
-                            onChange={formik.handleChange}
-                            value={formik.values.todo}
-                            name="todo"
-                            min={1}
-                            type="text"
-                        />
-                    </form>
+                    <p>{todo.todo}</p>
                 </div>
             </div>
         </li>
