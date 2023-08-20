@@ -40,6 +40,7 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
 
         previousTodo.push({ completed, todo, id: crypto.randomUUID() });
 
+        localStorage.setItem("todoes", JSON.stringify(previousTodo));
         await getTodoes();
     };
 

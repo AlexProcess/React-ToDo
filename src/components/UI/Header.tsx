@@ -1,6 +1,6 @@
 import "./header.css";
-import Sun from "../svgs/Sun";
-import { NewToDo } from "./NewToDo";
+import Sun from "../../svgs/Sun";
+import { NewToDo } from "../ToDo/NewToDo";
 
 export const Header = () => {
     return (

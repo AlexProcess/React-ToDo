@@ -1,7 +1,7 @@
 //* COMPONENTS *//
-import { Background } from "./components/Background";
-import { Header } from "./components/Header";
-import { NewToDo } from "./components/NewToDo";
+import { Background } from "./components/UI/Background";
+import { Header } from "./components/UI/Header";
+import { NewToDo } from "./components/ToDo/NewToDo";
 
 export const ToDoApp = () => {
     return (

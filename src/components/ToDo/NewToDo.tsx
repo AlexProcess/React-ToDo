@@ -1,19 +1,23 @@
-import { useFormik } from "formik";
-import "./newTodo.css";
 import { useContext } from "react";
+import { useFormik } from "formik";
+
+//* STYLES *//
+import "./newTodo.css";
+
+//* CONTEXT *//
+import { TodoContext } from "../../context/TodoContext";
 
 export const NewToDo = () => {
+    const { createTodo } = useContext(TodoContext);
+
     const formik = useFormik({
         initialValues: { todo: "", completed: false },
-        onSubmit: (formValues) => {
-            const previousTodos = localStorage.getItem("todos");
-            localStorage.setItem("todos", JSON.stringify(formValues.todo));
+        onSubmit: async (formValues) => {
+            await createTodo(formValues);
 
             formik.resetForm();
         },
     });
-
-    console.log(formik.values);
 
     return (
         <section className="todo-card__container">
