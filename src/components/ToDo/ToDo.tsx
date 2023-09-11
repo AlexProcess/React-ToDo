@@ -9,6 +9,7 @@ import { IToDo } from "../../interfaces/toDo.interfaces";
 
 //* CONTEXT *//
 import { TodoContext } from "../../context/TodoContext";
+import IconCross from "../../svgs/icon-cross";
 
 //* PROPS *//
 interface Props {
@@ -16,7 +17,7 @@ interface Props {
 }
 
 export const ToDo: React.FC<Props> = ({ todo }) => {
-    const { updateTodo } = useContext(TodoContext);
+    const { updateTodo, deleteTodo } = useContext(TodoContext);
 
     const formik = useFormik({
         initialValues: { todo: "", completed: false },
@@ -51,6 +52,12 @@ export const ToDo: React.FC<Props> = ({ todo }) => {
                     />
                     <p>{todo.todo}</p>
                 </div>
+                <button
+                    onClick={() => deleteTodo(todo.id)}
+                    className="delete__todo"
+                >
+                    <IconCross />
+                </button>
             </div>
         </li>
     );

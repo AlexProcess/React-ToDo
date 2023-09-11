@@ -14,7 +14,7 @@
 .todoes-card__contain {
   display: flex;
   align-items: center; 
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .rounded__button {
@@ -52,4 +52,10 @@
 
 .todo__input:focus {
   border: none;
+}
+
+.delete__todo{
+  outline: none;
+  border: none;
+  background: #25273c;
 }
