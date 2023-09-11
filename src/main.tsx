@@ -15,3 +15,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <ToDoApp />
     </TodoProvider>
 );
+
+//!ToDo --> Indicar items(Todoes que tienes en la lista)
+//!ToDo --> Delete button
+//!ToDo --> boton de clear all
+//!ToDo --> mostrar los ALL, ACTIVE Y COMPLETED
+//!ToDo --> Drag and drop
