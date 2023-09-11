@@ -10,6 +10,7 @@ import { IToDo } from "../../interfaces/toDo.interfaces";
 //* CONTEXT *//
 import { TodoContext } from "../../context/TodoContext";
 import IconCross from "../../svgs/icon-cross";
+import IconCheck from "../../svgs/icon-check";
 
 //* PROPS *//
 interface Props {
@@ -49,8 +50,16 @@ export const ToDo: React.FC<Props> = ({ todo }) => {
                                 ? "rounded__button-checked"
                                 : "rounded__button"
                         }
-                    />
-                    <p>{todo.todo}</p>
+                    >
+                        {formik.values.completed && <IconCheck />}
+                    </button>
+                    <p
+                        className={
+                            formik.values.completed ? "todo__checked" : "todo"
+                        }
+                    >
+                        {todo.todo}
+                    </p>
                 </div>
                 <button
                     onClick={() => deleteTodo(todo.id)}

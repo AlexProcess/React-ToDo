@@ -26,8 +26,7 @@
   margin-right: 10px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  
+  align-items: center;  
 }
 
 .rounded__button-checked{
@@ -39,7 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-image: linear-gradient(to right bottom, #71bdf4, #6cb0f9, #76a0fb, #8b8ef6, #a578ea);
 }
 
 .todo__input {
@@ -59,3 +58,15 @@
   border: none;
   background: #25273c;
 }
+
+.todo__checked{
+  color: #44475c; 
+  text-decoration: line-through;
+}
+
+
+.todo{
+  color: white;
+  font-weight: 300;
+}
+
