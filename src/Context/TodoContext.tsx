@@ -5,10 +5,17 @@ import { IDataToCreateTodo, IToDo } from "../interfaces/toDo.interfaces";
 
 //* CONTEXT *//
 //* CONTEXT *//
+const updatedFields: Partial<IToDo> = {
+    todo: "Nuevo título",
+    id: crypto.randomUUID(),
+    completed: false,
+};
+
 interface TodoContextProps {
     todoes: IToDo[];
     getTodoes(): Promise<void>;
     createTodo(newTodo: IDataToCreateTodo): Promise<void>;
+    updateTodo(id: string, updatedFields: Partial<IToDo>): Promise<void>;
 }
 
 export const TodoContext = createContext({} as TodoContextProps);
@@ -44,6 +51,19 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
         await getTodoes();
     };
 
+    //! UPDATE TODO
+    const updateTodo = async (id: string, updatedFields: Partial<IToDo>) => {
+        const updatedTodoes = todoes.map((todo) => {
+            if (todo.id === id) {
+                return { ...todo, ...updatedFields };
+            }
+            return todo;
+        });
+
+        localStorage.setItem("todoes", JSON.stringify(updatedTodoes));
+        await getTodoes();
+    };
+
     return (
         <TodoContext.Provider
             value={{
@@ -53,6 +73,7 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
                 // methods
                 getTodoes,
                 createTodo,
+                updateTodo,
             }}
         >
             {children}

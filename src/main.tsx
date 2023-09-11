@@ -11,9 +11,7 @@ import { TodoProvider } from "./context/TodoContext";
 import "./App.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-    <React.StrictMode>
-        <TodoProvider>
-            <ToDoApp />
-        </TodoProvider>
-    </React.StrictMode>
+    <TodoProvider>
+        <ToDoApp />
+    </TodoProvider>
 );

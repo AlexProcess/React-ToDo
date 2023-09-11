@@ -27,13 +27,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .rounded__button-checked{
   width: 24px; 
   height: 24px; 
   border-radius: 50%;
-  background-color: transparent;
   border: 2px solid  hsl(234, 11%, 52%);
   margin-right: 10px;
   display: flex;

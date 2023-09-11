@@ -1,48 +1,48 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { useFormik } from "formik";
+
+//* STYLES *//
+import "./todo.css";
 
 //* INTERFACES *//
 import { IToDo } from "../../interfaces/toDo.interfaces";
+
+//* CONTEXT *//
+import { TodoContext } from "../../context/TodoContext";
 
 //* PROPS *//
 interface Props {
     todo: IToDo;
 }
 
-//* CONTEXT *//
-import { TodoContext } from "../../context/TodoContext";
-import { useFormik } from "formik";
-
 export const ToDo: React.FC<Props> = ({ todo }) => {
-    const { createTodo } = useContext(TodoContext);
+    const { updateTodo } = useContext(TodoContext);
 
     const formik = useFormik({
         initialValues: { todo: "", completed: false },
         onSubmit: async (formValues) => {
-            await createTodo(formValues);
-
+            await updateTodo(todo.id, formValues);
             formik.resetForm();
         },
     });
 
     useEffect(() => {
-        return () => {};
-    }, []);
-
-    //TODO: UseEffect para actualizar los valores del formik
-    //TODO: Crear un metodo en el context para actualizar el todo a traves del ID
-    //TODO: Cuando se haga click en completado llamar a la funcion onSubmmit de formik --> formik.onSumbit
+        formik.setFieldValue("completed", todo.completed);
+        formik.setFieldValue("todo", todo.todo);
+    }, [todo]);
 
     return (
         <li>
             <div className="todoes-card__container">
                 <div className="todoes-card__contain">
                     <button
-                        onClick={() =>
+                        onClick={() => {
                             formik.setFieldValue(
                                 "completed",
                                 !formik.values.completed
-                            )
-                        }
+                            );
+                            setTimeout(() => formik.submitForm(), 250);
+                        }}
                         className={
                             formik.values.completed
                                 ? "rounded__button-checked"

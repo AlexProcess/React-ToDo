@@ -1,4 +1,6 @@
 import { useContext } from "react";
+
+//* COMPONENTS *//
 import { ToDo } from "./ToDo";
 
 //* STYLES *//
