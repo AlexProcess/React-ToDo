@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useFormik } from "formik";
 
 //* STYLES *//
@@ -8,8 +8,6 @@ import "./newTodo.css";
 import { TodoContext } from "../../context/TodoContext";
 
 export const NewToDo = () => {
-    const { createTodo } = useContext(TodoContext);
-
     const formik = useFormik({
         initialValues: { todo: "", completed: false },
         onSubmit: async (formValues) => {
@@ -18,6 +16,8 @@ export const NewToDo = () => {
             formik.resetForm();
         },
     });
+
+    const { createTodo } = useContext(TodoContext);
 
     return (
         <section className="todo-card__container">
