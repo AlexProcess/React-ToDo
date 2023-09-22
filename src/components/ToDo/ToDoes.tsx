@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 //* COMPONENTS *//
 import { ToDo } from "./ToDo";
@@ -12,11 +12,20 @@ import { TodoContext } from "../../context/TodoContext";
 export const ToDoes = () => {
     const { todoes } = useContext(TodoContext);
 
+    const leftItems = todoes.filter((todo) => !todo.completed);
+
     return (
-        <ul className="todo__list">
-            {todoes.map((todo) => (
-                <ToDo key={todo.id} todo={todo} />
-            ))}
-        </ul>
+        <>
+            <div>
+                <ul className="todo__list">
+                    {todoes.map((todo) => (
+                        <ToDo key={todo.id} todo={todo} />
+                    ))}
+                </ul>
+            </div>
+            <div>
+                <p>{leftItems.length} left items</p>
+            </div>
+        </>
     );
 };
