@@ -1,0 +1,18 @@
+.items-clear__contain{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #25273c;
+  padding: 12px 20px;
+  border-radius: 6px;
+  margin: 0 auto; 
+  width: 80%;
+  color: hsl(234, 11%, 52%);
+}
+
+.clear__button{
+    background: initial;
+    border: initial;
+    color: hsl(234, 11%, 52%);
+    cursor: pointer;
+}

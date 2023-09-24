@@ -17,6 +17,7 @@ interface TodoContextProps {
     createTodo(newTodo: IDataToCreateTodo): Promise<void>;
     updateTodo(id: string, updatedFields: Partial<IToDo>): Promise<void>;
     deleteTodo(id: string): Promise<void>;
+    deleteCompletedTodos: () => Promise<void>;
 }
 
 export const TodoContext = createContext({} as TodoContextProps);
@@ -72,6 +73,13 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
         await getTodoes();
     };
 
+    //! Delete completed TODOES
+    const deleteCompletedTodos = async () => {
+        const updatedTodoes = todoes.filter((todo) => !todo.completed);
+        localStorage.setItem("todoes", JSON.stringify(updatedTodoes));
+        await getTodoes();
+    };
+
     return (
         <TodoContext.Provider
             value={{
@@ -79,10 +87,12 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
                 todoes,
 
                 // methods
+
                 getTodoes,
                 createTodo,
                 updateTodo,
                 deleteTodo,
+                deleteCompletedTodos,
             }}
         >
             {children}

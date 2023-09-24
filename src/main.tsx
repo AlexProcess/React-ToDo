@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 );
 
 //!ToDo --> Delete button --> DONE
-//!ToDo --> Indicar items(Todoes que tienes en la lista)
+//!ToDo --> Indicar items(Todoes que tienes en la lista) --> DONE
 //!ToDo --> boton de clear all
 //!ToDo --> mostrar los ALL, ACTIVE Y COMPLETED
 //!ToDo --> Drag and drop
