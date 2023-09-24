@@ -8,6 +8,7 @@ import "./todoes.css";
 
 //* CONTEXT *//
 import { TodoContext } from "../../context/TodoContext";
+import { TodoStates } from "./TodoStates";
 
 export const ToDoes = () => {
     const { todoes, deleteCompletedTodos } = useContext(TodoContext);
@@ -32,6 +33,7 @@ export const ToDoes = () => {
                     Clear completed
                 </button>
             </div>
+            <TodoStates />
         </>
     );
 };
