@@ -1,18 +1,38 @@
 //* STYLES *//
+import { useContext } from "react";
 import "./todostates.css";
+import { TodoContext } from "../../context/TodoContext";
 
-export const TodoStates = () => {
+export const TodoStates: React.FC = () => {
+    const { getTodoes, getActiveTodoes, getCompleteTodoes } =
+        useContext(TodoContext);
+
     return (
         <>
             <div className="states__container">
                 <div>
-                    <button className="clear__button">All</button>
+                    <button
+                        onClick={() => getTodoes()}
+                        className="clear__button"
+                    >
+                        All
+                    </button>
                 </div>
                 <div>
-                    <button className="clear__button">Active</button>
+                    <button
+                        onClick={() => getActiveTodoes()}
+                        className="clear__button"
+                    >
+                        Active
+                    </button>
                 </div>
                 <div>
-                    <button className="clear__button">Completed</button>
+                    <button
+                        onClick={() => getCompleteTodoes()}
+                        className="clear__button"
+                    >
+                        Completed
+                    </button>
                 </div>
             </div>
             <div className="info__contain">

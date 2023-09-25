@@ -27,6 +27,7 @@
   display: flex;
   justify-content: center;
   align-items: center;  
+  cursor: pointer;
 }
 
 .rounded__button-checked{
@@ -39,6 +40,7 @@
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(to right bottom, #71bdf4, #6cb0f9, #76a0fb, #8b8ef6, #a578ea);
+  cursor: pointer
 }
 
 .todo__input {

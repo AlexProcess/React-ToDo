@@ -18,6 +18,8 @@ interface TodoContextProps {
     updateTodo(id: string, updatedFields: Partial<IToDo>): Promise<void>;
     deleteTodo(id: string): Promise<void>;
     deleteCompletedTodos: () => Promise<void>;
+    getActiveTodoes: () => Promise<void>;
+    getCompleteTodoes: () => Promise<void>;
 }
 
 export const TodoContext = createContext({} as TodoContextProps);
@@ -39,6 +41,22 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
     const getTodoes = async () => {
         const todoes = localStorage.getItem("todoes");
         if (todoes) setTodoes(JSON.parse(todoes));
+    };
+
+    //! GET ACTIVE TODOES
+    const getActiveTodoes = async () => {
+        const todoes = JSON.parse(localStorage.getItem("todoes") || "[]");
+        const activeTodoes = todoes.filter((todo: any) => !todo.completed);
+
+        setTodoes(activeTodoes);
+    };
+
+    //! GET COMPLETE TODOES
+    const getCompleteTodoes = async () => {
+        const todoes = JSON.parse(localStorage.getItem("todoes") || "[]");
+        const activeTodoes = todoes.filter((todo: any) => todo.completed);
+
+        setTodoes(activeTodoes);
     };
 
     //! CREATE TODO
@@ -93,6 +111,8 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
                 updateTodo,
                 deleteTodo,
                 deleteCompletedTodos,
+                getActiveTodoes,
+                getCompleteTodoes,
             }}
         >
             {children}

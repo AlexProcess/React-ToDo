@@ -10,7 +10,7 @@ import "./todoes.css";
 import { TodoContext } from "../../context/TodoContext";
 import { TodoStates } from "./TodoStates";
 
-export const ToDoes = () => {
+export const ToDoes: React.FC = () => {
     const { todoes, deleteCompletedTodos } = useContext(TodoContext);
 
     const leftItems = todoes.filter((todo) => !todo.completed);
