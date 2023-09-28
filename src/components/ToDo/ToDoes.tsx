@@ -9,6 +9,7 @@ import "./todoes.css";
 //* CONTEXT *//
 import { TodoContext } from "../../context/TodoContext";
 import { TodoStates } from "./TodoStates";
+import { DndContext } from "@dnd-kit/core";
 
 export const ToDoes: React.FC = () => {
     const { todoes, deleteCompletedTodos } = useContext(TodoContext);
@@ -18,11 +19,13 @@ export const ToDoes: React.FC = () => {
     return (
         <>
             <div className="todoes__container">
-                <ul className="todo__list">
-                    {todoes.map((todo) => (
-                        <ToDo key={todo.id} todo={todo} />
-                    ))}
-                </ul>
+                <DndContext>
+                    <ul className="todo__list">
+                        {todoes.map((todo) => (
+                            <ToDo key={todo.id} todo={todo} />
+                        ))}
+                    </ul>
+                </DndContext>
             </div>
             <div className="items-clear__contain">
                 <p>{leftItems.length} left items</p>

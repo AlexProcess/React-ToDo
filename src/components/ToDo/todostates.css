@@ -25,3 +25,8 @@
   margin-top: 60px;
   color: hsl(234, 11%, 52%);
 }
+
+.selected{
+  color: #427dfa;
+  font-weight: 900;
+}
